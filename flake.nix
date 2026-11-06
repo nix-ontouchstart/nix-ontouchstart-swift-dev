@@ -1,45 +1,36 @@
 {
-  description = "A minimal native macOS GUI .app bundle built with modern Nix";
+  description = "Nix wrapper for swift development";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-  };
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/master";
 
-  outputs = { self, nixpkgs }:
-    let
-      system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      packages.${system}.default = pkgs.stdenv.mkDerivation {
-        pname = "nix-native-gui";
-        version = "0.1.0";
+  outputs = { self, nixpkgs }: 
+    let 
+      aarch64-darwin = import nixpkgs { system = "aarch64-darwin"; };
+      default = { pkgs } :
+        pkgs.stdenv.mkDerivation {
+          pname = "nix-ontouchstart-swift-dev";
+          version = "0.1.0";
+          src = ./.;
+          nativeBuildInputs = [ pkgs.swift ];
+          buildInputs = [ ];
 
-        src = ./.;
+          buildPhase = ''
+            swiftc ./main.swift -o nix-ontouchstart-swift-dev
+          '';
 
-        # Only require the compiler toolchain. 
-        # Apple framework headers are seamlessly linked by stdenv's default SDK setup.
-        nativeBuildInputs = [ pkgs.swift ];
-        buildInputs = [ ];
+          installPhase = ''
+            APP_DIR="$out/Applications/NixNativeGUI.app/Contents"
+            mkdir -p "$APP_DIR/MacOS"
+            mkdir -p "$APP_DIR/Resources"
 
-        buildPhase = ''
-          swiftc ./main.swift -o nix-native-gui
-        '';
-
-        installPhase = ''
-          APP_DIR="$out/Applications/NixNativeGUI.app/Contents"
-          mkdir -p "$APP_DIR/MacOS"
-          mkdir -p "$APP_DIR/Resources"
-
-          cp nix-native-gui "$APP_DIR/MacOS/"
-          cp Info.plist "$APP_DIR/"
-        '';
-      };
-
-      apps.${system}.default = {
+            cp nix-ontouchstart-swift-dev "$APP_DIR/MacOS/"
+            cp Info.plist "$APP_DIR/"
+          '';
+        };
+    in {
+      packages.aarch64-darwin.default = default { pkgs = aarch64-darwin; };
+      apps.aarch64-darwin.default = {
         type = "app";
-        program = "${self.packages.${system}.default}/Applications/NixNativeGUI.app/Contents/MacOS/nix-native-gui";
-      };
-    };
+        program = "${self.packages.aarch64-darwin.default}/Applications/NixNativeGUI.app/Contents/MacOS/nix-ontouchstart-swift-dev";};
+   };
 }
-

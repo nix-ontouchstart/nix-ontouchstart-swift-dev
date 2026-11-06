@@ -12,7 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             defer: false
         )
         window.center()
-        window.title = "Nix Native GUI Example"
+        window.title = "nix-ontouchstart-swift-dev"
         window.makeKeyAndOrderFront(nil)
 
         // Create a native button
@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func buttonClicked() {
-        print("Hello from a Nix-built native GUI!")
+        print("Hello from nix-ontouchstart-swift-dev!")
     }
 }
 
