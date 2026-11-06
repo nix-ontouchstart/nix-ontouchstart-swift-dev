@@ -34,7 +34,7 @@
           owner = "nix-ontouchstart";
           repo = "nix-ontouchstart-swift-dev";
           rev = "hello";
-          hash = "sha256-xacXJ+8JUxLSEASib8MrwrwEBT+8MtbZ/5hNb9zF5Ck=";
+          hash = "sha256-xhM+UJZKq/2s5HEqxNrWGXLiFNlByVJS0weYdfZPY2E=";
         };
         in pkgs.stdenv.mkDerivation {
           pname = "nix-ontouchstart-swift-dev";
