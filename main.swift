@@ -12,12 +12,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             defer: false
         )
         window.center()
-        window.title = "nix-ontouchstart-swift-dev"
+        window.title = "hello"
         window.makeKeyAndOrderFront(nil)
 
         // Create a native button
         let button = NSButton(frame: NSRect(x: 150, y: 80, width: 100, height: 40))
-        button.title = "Click Me!"
+        button.title = "Hello"
         button.bezelStyle = .rounded
         button.target = self
         button.action = #selector(buttonClicked)
@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func buttonClicked() {
-        print("Hello from nix-ontouchstart-swift-dev!")
+        print("Hello")
     }
 }
 
