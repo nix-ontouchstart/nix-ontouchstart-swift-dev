@@ -34,12 +34,12 @@
           owner = "nix-ontouchstart";
           repo = "nix-ontouchstart-swift-dev";
           rev = "hello";
-          # hash = "sha256-fdFQ43XK5rIvW//1eyZEXveqGnIpFbpoiuP+dzpfN7k=";
+          hash = "sha256-xacXJ+8JUxLSEASib8MrwrwEBT+8MtbZ/5hNb9zF5Ck=";
         };
         in pkgs.stdenv.mkDerivation {
           pname = "nix-ontouchstart-swift-dev";
           version = "0.1.0";
-          src = src;
+          src = "${src}";
           nativeBuildInputs = [ pkgs.swift ];
           buildInputs = [ ];
 
@@ -63,6 +63,6 @@
 
       packages.aarch64-darwin.hello = hello { pkgs = aarch64-darwin; };
       apps.aarch64-darwin.hello = { type = "app";
-        program = "${self.packages.aarch64-darwin.default}/Applications/NixNativeGUI.app/Contents/MacOS/nix-ontouchstart-swift-dev";};
+        program = "${self.packages.aarch64-darwin.hello}/Applications/NixNativeGUI.app/Contents/MacOS/nix-ontouchstart-swift-dev";};
    };
 }
