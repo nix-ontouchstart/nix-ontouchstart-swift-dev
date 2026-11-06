@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://apple.com">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>CFBundleDevelopmentRegion</key>
-    <string>en</string>
-    <key>CFBundleExecutable</key>
-    <string>nix-ontouchstart-swift-dev</string>
-    <key>CFBundleIdentifier</key>
-    <string>org.nix.nix-ontouchstart-swift-dev</string>
-    <key>CFBundleInfoDictionaryVersion</key>
-    <string>6.0</string>
-    <key>CFBundleName</key>
-    <string>NixNativeGUI</string>
-    <key>CFBundlePackageType</key>
-    <string>APPL</string>
-    <key>CFBundleShortVersionString</key>
-    <string>1.0</string>
-    <key>LSMinimumSystemVersion</key>
-    <string>11.0</string>
+	<key>CFBundleExecutable</key>
+	<string>Main</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.demo.m5gpu</string>
+	<key>CFBundleName</key>
+	<string>M5GPUDemo</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>LSApplicationWorkspaceType</key>
+	<string>Default</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
 </dict>
 </plist>
 
